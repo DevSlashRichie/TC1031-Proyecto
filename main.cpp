@@ -1,3 +1,8 @@
+/*
+*  autor: Ricardo Rodríguez Medina
+*  fecha: September 2025
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -49,7 +54,7 @@ int main() {
     do {
         std::cout << "\nMovie Library Menu:\n";
         std::cout << "1. Add movie\n";
-        std::cout << "3. Show all movies (sorted by rating)\n";
+        std::cout << "2. Show all movies (sorted by rating)\n";
         std::cout << "0. Exit\n";
         std::cout << "Choose an option: ";
         std::cin >> choice;
@@ -63,7 +68,7 @@ int main() {
             std::cout << "Enter rating (1-10): ";
             std::cin >> rating;
             library.addMovie(title, rating);
-        } else if (choice == 3) {
+        } else if (choice == 2) {
             library.showMovies();
         }
     } while (choice != 0);
