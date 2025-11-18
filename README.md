@@ -48,8 +48,12 @@ El proceso es el siguiente:
 
 ### ¿Por qué `std::sort` es una buena elección?
 
--   **Eficiencia**: `std::sort` tiene una complejidad promedio de **O(N log N)**, que es muy eficiente para conjuntos de datos de tamaño moderado a grande.
--   **Estándar de la Industria**: Es la forma idiomática y recomendada de ordenar colecciones en C++ moderno. Está bien probado, es rápido y es mantenido por la comunidad de C++.
+-   **Eficiencia**: `std::sort` tiene una complejidad promedio de **O(N log N)** y, crucialmente, un peor caso también de **O(N log N)**. Esto se debe a que `std::sort` es una implementación de **Introsort**, un algoritmo híbrido que combina las fortalezas de tres algoritmos distintos para garantizar un rendimiento robusto:
+    -   **Quicksort**: Es el algoritmo principal utilizado por su excelente rendimiento en el caso promedio (**O(N log N)**). Sin embargo, su peor caso es **O(N^2)**, que ocurre con particiones muy desbalanceadas (por ejemplo, en datos ya ordenados o casi ordenados).
+    -   **Heapsort**: Para evitar el peor caso de Quicksort, Introsort monitorea la profundidad de la recursión. Si excede un límite (indicando que las particiones se están volviendo desbalanceadas), cambia a Heapsort, que tiene una complejidad garantizada de **O(N log N)** en el peor de los casos.
+    -   **Insertion Sort**: Para particiones muy pequeñas (generalmente menos de 16 elementos), Introsort cambia a Insertion Sort. Aunque su peor caso es **O(N^2)**, es extremadamente rápido para listas pequeñas, superando a los algoritmos basados en comparación que tienen una mayor sobrecarga.
+    
+    Esta combinación inteligente asegura que `std::sort` sea rápido en la práctica y al mismo tiempo evita los escenarios de peor rendimiento, haciéndolo una elección muy segura y eficiente.
 -   **Simplicidad**: Evita la necesidad de implementar un algoritmo de ordenamiento desde cero, lo que reduce la cantidad de código y la probabilidad de errores.
 
 ### Análisis de Complejidad del Nuevo Comando
