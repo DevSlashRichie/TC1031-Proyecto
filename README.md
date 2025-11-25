@@ -2,6 +2,11 @@
 
 Este proyecto es un sistema de línea de comandos para gestionar una biblioteca de películas. Permite agregar películas, verlas ordenadas por calificación, y guardar/cargar la biblioteca desde un archivo CSV.
 
+### Problemas
+https://tec.neetorecord.com/watch/b9c49b4a6a992f313aec?time=0
+https://tec.neetorecord.com/watch/78865429ec35d93f9a37
+https://tec.neetorecord.com/watch/dc6603d9045cf3c2a74e
+
 ## ¿Cómo usar el programa?
 
 Para compilar y ejecutar el programa, sigue estos pasos en tu terminal:
